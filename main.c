@@ -15,21 +15,28 @@ int main(){
                 }
                 if(menu == 1){
 			if(count > 0)
-				listInsrument(i, index);
-                      	else
+				listInstrument(ilist, index);
+                	else{
+				printf("데이터가 없습니다!\n");
+				printf("\n");
 				continue;
-                }
+			}
+			printf("\n");
+		}
                 if(menu == 2){
                         count += addInstrument(&ilist[index++]);
                         x++;
+			printf("\n");
                 }
                 else if(menu == 3){
-                        int no = SelectInstrument(ilist, index);
+                        int no = selectInstrument(ilist, index);
                         if(no == 0){
                                 printf("=>취소되었습니다.\n");
+				printf("\n");
                                 continue;
                         }
                         updateInstrument(&ilist[no-1]);
+			printf("\n");
                 }
                 else if(menu == 4){
                         int no = selectInstrument(ilist, index);
@@ -38,7 +45,7 @@ int main(){
                         }
                         else{
                                 int delete;
-                                delete = deleteinstrument(&ilist[no-1]);
+                                delete = deleteInstrument(&ilist[no-1]);
                                 if(delete == 1){
                                         printf("=> 삭제되었습니다.\n");
                                         count--;
@@ -46,10 +53,9 @@ int main(){
                                 else
                                         printf("=> 취소되었습니다.\n");
                         }
-                        printf("\n");
                 }
                 else if(menu == 5){
-                        saveData(flist, index);
+                        saveData(ilist, index);
                 }
 		printf("\n");
         }
