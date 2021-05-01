@@ -62,3 +62,32 @@ int deleteInstrument(Instrument *i){
 
 	return check;
 }
+
+void listInstrument(Instrument *i, int count){
+	printf("번호\t악기이름\t악기가격\t악기중량\n");
+	for(int x=0; x<count; x++){
+		printf("%2d\t", x+1);
+		showInstrument(i[x]);
+	}
+}
+
+int selectInstrument(Instrument *i, int count){
+	int no;
+	listInstrument(i, count);
+	printf("수정하고 싶은 악기 번호는? (취소: 0) ");
+	scanf("%d", &no);
+
+	return no;
+}
+
+void saveData(Instrument *i, int count){
+	FILE *fp = fopen("instrument.txt", "rt");
+
+	for(int x=0; x<count; x++){
+		if(i[x].price == -1)
+			continue;
+		fprintf(fp, "%s %d %d %.1lf", i[x].name, i[x].price, i[x].star, i[x].weight);
+	}
+	fclose(fp);
+	printf("=> 저장됨!\n");
+}
