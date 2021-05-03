@@ -1,14 +1,14 @@
-#include <stdio.h>
-#include <string.h>
 #include "project.h"
 
 int main(){
 	Instrument ilist[100];
-	int menu, count =0;
+	int menu, count;
 	int index = 0;
 
+	count = loadData(ilist);
+	index = count;	
+
 	while(1){
-                int x = 0;
                 menu = SelectNumber();
                 if(menu == 0){
                         break;
@@ -25,7 +25,6 @@ int main(){
 		}
                 if(menu == 2){
                         count += addInstrument(&ilist[index++]);
-                        x++;
 			printf("\n");
                 }
                 else if(menu == 3){
@@ -57,6 +56,18 @@ int main(){
                 else if(menu == 5){
                         saveData(ilist, index);
                 }
+		else if(menu == 6) {
+			searchName(ilist, index);
+		}
+		else if(menu == 7) {
+			searchPrice(ilist, index);
+		}
+		else if(menu == 8) {
+			searchStar(ilist, index);
+		}
+		else if(menu == 9) {
+			searchWeight(ilist, index);
+		}
 		printf("\n");
         }
         printf("=> 종료\n");
