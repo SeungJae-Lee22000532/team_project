@@ -1,4 +1,3 @@
 *.o
-main
+instrument
 *.txt
-*.md
