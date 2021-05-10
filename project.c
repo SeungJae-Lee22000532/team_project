@@ -56,7 +56,7 @@ int updateInstrument(Instrument *i){
 
 int deleteInstrument(Instrument *i){
 	int check;
-	printf("정말로 삭제하시겠습니까? (취소: 0) ");
+	printf("정말로 삭제하시겠습니까? (선택: 1, 취소: 0) ");
 	while(check != 0 && check != 1) {
 		scanf("%d", &check);
 	}
@@ -73,6 +73,7 @@ int deleteInstrument(Instrument *i){
 void listInstrument(Instrument *i, int count){
 	printf("번호\t악기이름\t악기가격\t악기별점\t악기중량\n");
 	for(int x=0; x<count; x++){
+		if(i[x].price == -1) continue;
 		printf("%2d\t", x+1);
 		showInstrument(i[x]);
 	}
