@@ -25,7 +25,7 @@ int main(){
 		}
                 if(menu == 2){
                         count += addInstrument(&ilist[index++]);
-			printf("\n");
+			if(count > 0) printf("=> 추가됨!\n");
                 }
                 else if(menu == 3){
                         int no = selectInstrument(ilist, index);
@@ -35,7 +35,7 @@ int main(){
                                 continue;
                         }
                         updateInstrument(&ilist[no-1]);
-			printf("\n");
+			printf("=> 수정됨!\n");
                 }
                 else if(menu == 4){
                         int no = selectInstrument(ilist, index);
