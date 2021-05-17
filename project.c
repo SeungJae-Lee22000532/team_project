@@ -36,7 +36,7 @@ int addInstrument(Instrument *i){
 }
 
 void showInstrument(Instrument i){
-	printf("%s\t%d\t%d\t%.1lf\n", i.name, i.price, i.star, i.weight);
+	printf("%s\t\t%d\t\t%d\t\t%.1lf\n", i.name, i.price, i.star, i.weight);
 }
 
 int updateInstrument(Instrument *i){
