@@ -143,7 +143,7 @@ void searchPrice(Instrument *i, int count) {
 	int x;
 	for(x = 0; x < count; x++) {
 		if(i[x].price == -1) continue;
-		if(i[x].price == i_price) {
+		if(i[x].price >= i_price) {
 			printf("번호\t악기이름\t악기가격\t악기 별점\t악기중량\n");
 		       	printf("%2d\t", x + 1);
 		       	showInstrument(i[x]);
