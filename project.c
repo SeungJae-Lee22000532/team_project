@@ -57,8 +57,9 @@ int updateInstrument(Instrument *i){
 int deleteInstrument(Instrument *i){
 	int check;
 	printf("정말로 삭제하시겠습니까? (선택: 1, 취소: 0) ");
-	while(check != 0 && check != 1) {
+	while(1) {
 		scanf("%d", &check);
+		if(check == 1 || check == 0) break;
 	}
 	if(check == 1){
 		strcpy(i->name, "NULL");
@@ -165,18 +166,12 @@ void searchStar(Instrument *i, int count) {
 }
 void searchWeight(Instrument *i, int count) {
 	double i_weight;
-	double sub;
-	double f = 0.01;
 	printf("검색할 중량은? ");
 	scanf("%lf", &i_weight);
 	int x;
 	for(x = 0; x < count; x++) {
 		if(i[x].price == -1) continue;
-		if(i[x].weight - i_weight < 0.0)
-			sub = -(i[x].weight - i_weight);
-		else
-			sub = i[x].weight - i_weight;
-		if(sub < f) {
+		if(i[x].weight - i_weight > 0.0) {
 			printf("번호\t악기이름\t악기가격\t악기 별점\t악기중량\n");
 		       	printf("%2d\t", x + 1);
 		       	showInstrument(i[x]);
